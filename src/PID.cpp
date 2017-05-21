@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
-* TODO: Complete the PID class.
+* TODO: Complete the PID1 class.
 */
 
 PID::PID() {}
@@ -11,11 +11,16 @@ PID::PID() {}
 PID::~PID() {}
 
 void PID::Init(double Kp, double Ki, double Kd) {
+  p_error = -1; 
 }
 
 void PID::UpdateError(double cte) {
+  d_error = cte - p_error;
+  p_error = cte;
+  i_error += cte;
 }
 
 double PID::TotalError() {
+  
 }
 
