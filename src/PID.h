@@ -11,6 +11,7 @@ public:
   double d_error;
   double b_error;
 
+
   /*
   * Coefficients
   */ 
@@ -18,6 +19,14 @@ public:
   double Ki;
   double Kd;
 
+  double counter;
+  double dp[3];
+  double K[3];
+  bool K_increased; 
+  int i;
+  
+  double steering_smooth;
+  
   /*
   * Constructor
   */
