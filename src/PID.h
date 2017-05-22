@@ -24,6 +24,7 @@ public:
   double K[3];
   bool K_increased; 
   int i;
+  double throttle;
   
   double steering_smooth;
   

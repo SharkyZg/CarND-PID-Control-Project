@@ -59,7 +59,7 @@ void PID::Twiddle (double cte) {
       dp[i]*= 1.1;
       K_increased = true;
     } else {
-      K[i]=K_dbl-dp[i];
+      K[i]=K_dbl-2*dp[i];
       K_increased = false;
       dp[i]*= 0.9;
     } 
@@ -70,19 +70,16 @@ void PID::Twiddle (double cte) {
       dp[i]*= 1.1;
       K_increased = false;
     } else {
-      K[i]=K_dbl+dp[i];
+      K[i]=K_dbl+2*dp[i];
       K_increased = true;
       dp[i] *= 0.9;
     }
   }
-        
-
 }
 
 double PID::TotalError() {
   double total_error;
-
-  total_error = -Kp * p_error - 1*Kd * d_error - Ki * i_error;
+  total_error = -Kp * p_error - Kd * d_error - Ki * i_error;
   return total_error;
 }
 
